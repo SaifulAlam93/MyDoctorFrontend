@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DrugInteractionData } from '../interfaces/drugInteractionData';
+import { StorageService } from './storage.service';
 
 
 const url = 'http://localhost:8080/api/prescriptions';
@@ -16,7 +17,7 @@ const httpOptions = {
 })
 export class ApiService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private storageService: StorageService) { }
 
   getPrescriptionByID(id: number){
     return this.http.get<any>(url+"/" + id)
