@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+
+
+<div class="container">
+  <h1>Drug Interactions</h1>
+  <div class="disclaimer">
+    <p>{{ interactionData.nlmDisclaimer }}</p>
+  </div>
+  <div class="interaction-group" *ngFor="let group of interactionData.interactionTypeGroup">
+    <h2>{{ group.sourceName }} Interactions</h2>
+    <div class="source-disclaimer">
+      <p>{{ group.sourceDisclaimer }}</p>
+    </div>
+    <div class="interaction-type" *ngFor="let interaction of group.interactionType">
+      <h3>Interaction</h3>
+
+
+      <p>{{ interaction.comment }}</p>
+      <ol class="interaction-pair-list">
+        <li *ngFor="let pair of interaction.interactionPair">
+          <h4> {{ pair.description }}</h4>
+          <p>Severity: {{ pair.severity }}</p>
+          <div class="concept-items">
+
+
+            <div class="table-container">
+              <table class="interaction-table" id="concept">
+                <thead>
+                  <tr>
+                    <th>Min Concept Name</th>
+                    <th>RxCUI</th>
+                    <th>TTY</th>
+                    <th>Source Concept Id</th>
+                    <th>Source Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngFor="let concept of pair.interactionConcept">
+
+                    <tr>
+                      <td>
+                        {{ concept.minConceptItem.name }}
+                      </td>
+                      <td>{{ concept.minConceptItem.rxcui }}</td>
+                      <td>{{ concept.minConceptItem.tty }}</td>
+                      <td>{{ concept.sourceConceptItem.id }}</td>
+
+                      <td><a href="{{ concept.sourceConceptItem.url }}" target="_blank">{{
+                          concept.sourceConceptItem.name }}</a></td>
+
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+
+
+            <!-- 
+            <div class="min-concept" *ngFor="let concept of pair.interactionConcept">
+
+              <h5>Min Concep</h5>
+
+              <p><strong>Min Concept Name:</strong> {{ concept.minConceptItem.name }}</p>
+              <p><strong>RxCUI:</strong> {{ concept.minConceptItem.rxcui }}</p>
+              <p><strong>TTY:</strong> {{ concept.minConceptItem.tty }}</p>
+
+              <h5>Source Concep</h5>
+
+              <p><strong>Source Concept Id:</strong>  {{ concept.sourceConceptItem.id }}</p>
+              <p><strong>Source Name:</strong> <a href="{{ concept.sourceConceptItem.url }}" target="_blank">{{ concept.sourceConceptItem.name }}</a></p>
+            </div> -->
+
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="login-page">
+    <div class="form">
+
+        <form class="login-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()" novalidate autocomplete="false">
+            <h2 class="text-center">SignUp Now</h2>
+
+            <div class="form-group">
+                <input formControlName="username" id="username" type="text" placeholder="Username" class="form-control">
+                <div *ngIf="f['username'].touched && f['username'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['username'].errors && f['username'].errors['required']">UserName is required.</div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <input formControlName="email" id="email" type="text" placeholder="Email" class="form-control">
+                <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input formControlName="password" id="password" type="password" placeholder="Password"
+                    class="form-control">
+                <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input formControlName="confPassword" id="confPassword" type="password" placeholder="confPassword"
+                    class="form-control">
+                <div *ngIf="f['confPassword'].touched && f['confPassword'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['confPassword'].errors && f['confPassword'].errors['required']">ConfPassword is
+                        required.</div>
+                </div>
+            </div>
+
+            <div *ngIf="passPolici" class="alert alert-danger">
+                <div >Password and Confirm Password must be match.</div>
+            </div>
+
+            <button ype="submit">SignUp</button>
+            <p class="message">Already have an Account? <a routerLink="/login" href="#">Sign In</a></p>
+        </form>
+    </div>
+</div>

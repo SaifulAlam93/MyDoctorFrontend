@@ -1,0 +1,56 @@
+// .table-container {
+//     width: 100%;
+//     overflow-x: auto;
+//   }
+  
+//   .interaction-table {
+//     width: 100%;
+//     border-collapse: collapse;
+//     margin-top: 20px;
+//   }
+  
+//   .interaction-table th, .interaction-table td {
+//     border: 1px solid #ccc;
+//     padding: 8px;
+//     text-align: left;
+//   }
+  
+//   .group-header {
+//     font-weight: bold;
+//     background-color: #f5f5f5;
+//   }
+  
+  // p {
+  //   background-color: lightblue;
+  //   text-align: center;
+  //   font-size: 24px;
+  // }
+
+  h1 {
+    background-color: lightblue;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  #concept {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #concept td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #concept tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #concept tr:hover {background-color: #ddd;}
+  
+  #concept th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }

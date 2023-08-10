@@ -1,0 +1,26 @@
+<div class="login-page">
+  <div class="form">
+
+    <form class="login-form" [formGroup]="signInForm" (ngSubmit)="onSubmit()" novalidate autocomplete="false">
+      <h2 class="text-center">Signin Now</h2>
+
+      <div class="form-group">
+        <input formControlName="username" id="username" type="text" placeholder="Username" class="form-control">
+        <div *ngIf="f['username'].touched && f['username'].invalid" class="alert alert-danger">
+          <div *ngIf="f['username'].errors && f['username'].errors['required']" style="color: red;">Username is required.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input formControlName="password" id="password" type="password" placeholder="Password" class="form-control">
+        <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+          <div *ngIf="f['password'].errors && f['password'].errors['required']" style="color: red;" >Password is required.</div>
+        </div>
+      </div>
+
+
+      <button ype="submit">login</button>
+      <p class="message">New member? <a routerLink="/signup" href="#">Create an account</a></p>
+    </form>
+  </div>
+</div>

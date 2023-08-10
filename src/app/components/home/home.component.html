@@ -1,0 +1,65 @@
+
+
+<app-header></app-header>
+    
+  <div class="container">
+    <h1>Prescription List</h1>
+    <p>You will find here all Patient data.  </p>
+  
+  
+<div class="row">
+  
+  <div class="col-sm-4">
+    <div class="input-group">
+      <span class="input-group-addon">Start Date</span>
+      <input type="datetime-local" placeholder="Start Date" [(ngModel)]="startDate" class="form-control" aria-label="Text input with checkbox">
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="input-group">
+      <span class="input-group-addon">End Date</span>
+
+      <input type="datetime-local" placeholder="End Date"  [(ngModel)]="endDate" class="form-control" aria-label="Text input with radio button">
+    </div>
+    
+  </div>
+  <div class="col-sm-2">
+    <div class="input-group">
+      <button type="button" class="btn btn-primary" (click)="searchDateAlternative()">Search </button>
+    </div>
+    
+  </div>
+
+</div>
+
+<br>
+
+<table id="customers">
+  <tr>
+    <th>Prescription Date</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Diagnosis</th>
+    <th>Medicines</th>
+    <th>Next Visit Date</th>
+    <th>Actions</th>
+
+
+  </tr>
+  <tr *ngFor="let p of prescriptionList" >
+    <td>{{ p.prescriptionDate }}</td>
+    <td>{{ p.name }}</td>
+    <td>{{ p.age }}</td>
+    <td>{{ p.gender }}</td>
+    <td>{{ p.diagnosis }}</td>
+    <td>{{ p.medicines }}</td>
+    <td>{{ p.nextVisitDate }}</td>
+
+    <td>
+      <a href="#" [routerLink]="['/create/', p.id]" class="btn btn-primary">Edit</a>
+      <button type="button" (click)="clickMethod(p)" class="btn btn-danger">Delete</button>
+    </td>
+  </tr>
+</table>
+</div>

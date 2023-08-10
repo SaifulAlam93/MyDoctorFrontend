@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+
+<div class="form-style-5">
+    <form [formGroup]="prescriptionForm" (ngSubmit)="submit()">
+        <legend><span class="number">*</span> Prescription</legend>
+        <label for="prescriptionDate">Prescription Date *</label>
+
+        <input type="datetime-local" id="prescriptionDate" formControlName="prescriptionDate" required>
+        <div *ngIf="f['prescriptionDate'].touched && f['prescriptionDate'].invalid" class="alert alert-danger">
+            <div *ngIf="f['prescriptionDate'].errors && f['prescriptionDate'].errors['required']" style="color: red;">
+                PrescriptionDate is required.</div>
+        </div>
+
+        <label for="name">Patient Name *</label>
+        <input type="text" name="name" id="name" formControlName="name" placeholder="Patient Name *">
+        <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+            <div *ngIf="f['name'].errors && f['name'].errors['required']" style="color: red;">Name is required.</div>
+        </div>
+
+        <label for="age">Age *</label>
+        <input type="number" name="age" placeholder="Age *" id="age" formControlName="age">
+        <div *ngIf="f['age'].touched && f['age'].invalid" class="alert alert-danger">
+            <div *ngIf="f['age'].errors && f['age'].errors['required']" style="color: red;">Age is required.</div>
+        </div>
+
+
+        <label for="gender">Gender *</label>
+        <select name="gender" aria-placeholder="Gender" id="gender" formControlName="gender">
+            <option selected value=""></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+
+        <label for="diagnosis">Diagnosis</label>
+        <textarea name="diagnosis" placeholder="Diagnosis" id="diagnosis" formControlName="diagnosis"></textarea>
+
+
+        <label for="medicines">Medicines </label>
+        <textarea name="medicines" placeholder="Medicines" id="medicines" formControlName="medicines"></textarea>
+
+
+        <label for="nextVisitDate">Next visit date</label>
+        <input type="datetime-local" formControlName="nextVisitDate" id="nextVisitDate">
+
+        <input *ngIf="id == 'null'" type="submit" value="Submit" />
+        <input *ngIf="id != 'null'" type="submit" value="Update" />
+
+    </form>
+</div>
